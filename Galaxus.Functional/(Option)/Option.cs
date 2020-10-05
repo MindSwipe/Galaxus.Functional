@@ -272,5 +272,23 @@ namespace Galaxus.Functional
         /// <param name="value">The value to be contained inside the <see cref="Option{T}" /></param>
         /// <returns>An <see cref="Option{T}" /></returns>
         public static Option<T> Some<T>(T value) => Option<T>.Some(value);
+
+        /// <summary>
+        ///     Creates an instance of <see cref="Option{T}" /> which either contains the value specified or is
+        ///     <see cref="Option{T}.None" />
+        /// </summary>
+        /// <typeparam name="T">The type of the possibly contained value</typeparam>
+        /// <param name="value">The possible value inside the <see cref="Option{T}" /></param>
+        /// <returns>
+        ///     Either <see cref="Option{T}.Some" /> with the value specified, or <see cref="Option{T}.None" /> if
+        ///     null was supplied
+        /// </returns>
+        public static Option<T> From<T>(T value)
+        {
+            if (value == null)
+                return Option<T>.None;
+
+            return Some(value);
+        }
     }
 }
