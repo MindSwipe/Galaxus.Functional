@@ -259,4 +259,18 @@ namespace Galaxus.Functional
 
         #endregion
     }
+
+    /// <summary>
+    /// A class adding type inference functionality to <see cref="Option{T}"/>
+    /// </summary>
+    public sealed class Option
+    {
+        /// <summary>
+        ///     Creates an <see cref="Option{T}" /> instance containing a value
+        /// </summary>
+        /// <typeparam name="T">The type of the contained value</typeparam>
+        /// <param name="value">The value to be contained inside the <see cref="Option{T}" /></param>
+        /// <returns>An <see cref="Option{T}" /></returns>
+        public static Option<T> Some<T>(T value) => Option<T>.Some(value);
+    }
 }
